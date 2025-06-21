@@ -10,7 +10,7 @@ COLOR_CODES = {
     "blue": "#0000FF",
     "brown": "#A52A2A",
     "cadetblue": "#5F9EA0",
-    "cornsilk": "#FFF8DC"
+    "cameopink": "#EFBBCC"
 }
 
 max_name_length = max(len(name) for name in COLOR_CODES.keys())

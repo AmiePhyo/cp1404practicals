@@ -25,7 +25,7 @@ class KivyDemo(App):
         return self.root
 
     def handle_name_button(self, instance):
-        """Handle presses on the name button to greet people."""
+        """Handle presses on the name button to greet people"""
         print("Hello", instance.text)
 
     def handle_press(self, amount):

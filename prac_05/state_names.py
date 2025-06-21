@@ -16,7 +16,6 @@ CODE_TO_NAME = {
     "SA": "South Australia"}
 print(CODE_TO_NAME)
 
-# Print all states neatly lined up
 max_code_length = max(len(code) for code in CODE_TO_NAME.keys())
 for code, name in CODE_TO_NAME.items():
     print(f"{code:<{max_code_length}} is {name}")
