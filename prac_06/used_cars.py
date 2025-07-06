@@ -19,7 +19,7 @@ def main():
     limo.add_fuel(20)
     print(f"The amount of fuel in limo is {limo.fuel}")
     distance_driven = limo.drive(115)
-    print(f"Limo drove {distance_driven}km")
+    print(f"Limo drove {distance_driven} km")
 
     my_car = Car(42)
     my_car._odometer = 227
