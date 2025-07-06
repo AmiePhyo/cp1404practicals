@@ -21,7 +21,7 @@ def main():
     distance_driven = limo.drive(115)
     print(f"Limo drove {distance_driven} km")
 
-    my_car = Car(42)
+    my_car = Car("Car1",42)
     my_car._odometer = 227
     print(str(my_car))
 
