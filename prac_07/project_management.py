@@ -1,4 +1,5 @@
 import datetime
+from operator import attrgetter
 
 from project import Project
 
@@ -8,13 +9,8 @@ FILENAME = "projects.txt"
 def main():
     print("Welcome to Pythonic Project Management!")
     projects = load_projects()
-    print("- (L)oad projects")
-    print("- (S)ave projects")
-    print("- (D)isplay projects")
-    print("- (F)ilter projects by date")
-    print("- (A)dd new project")
-    print("- (U)pdate project")
-    print("- (Q)uit")
+    MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new project\n- (U)pdate project\n- (Q)uit"
+    print(MENU)
     choice = input(">>> ").lower()
 
     while choice != "q":
@@ -30,15 +26,19 @@ def main():
             update_project(projects)
         elif choice == "a":
             add_new_project(projects)
+        elif choice == "f":
+            filter_projects(projects)
+        else:
+            print("Invalid choice.")
 
-        print("- (L)oad projects")
-        print("- (S)ave projects")
-        print("- (D)isplay projects")
-        print("- (F)ilter projects by date")
-        print("- (A)dd new project")
-        print("- (U)pdate project")
-        print("- (Q)uit")
+        MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new project\n- (U)pdate project\n- (Q)uit"
+        print(MENU)
         choice = input(">>> ").lower()
+
+    save_choice = input(f"Would you like to save to {FILENAME}? (Y/n): ").lower()
+    if save_choice.startswith("y") or save_choice == "":
+        save_projects(projects)
+    print("Thank you for using custom-built project management software.")
 
 def load_projects(filename=FILENAME):
     """Loads projects from a file."""
@@ -107,8 +107,18 @@ def add_new_project(projects):
     priority = int(input("Priority: "))
     cost = float(input("Cost estimate: $"))
     completion = int(input("Percent complete: "))
-    projects.append(Project(name, date_str, priority, cost, completion))
+    start_date = datetime.datetime.strptime(date_str, "%d/%m/%Y").date()
+    projects.append(Project(name, start_date, priority, cost, completion))
     print("Project added.")
 
+def filter_projects(projects):
+    """Filters projects by date."""
+    date_str = input("Show projects that start after date (dd/mm/yyyy): ")
+    filter_date = datetime.datetime.strptime(date_str, "%d/%m/%Y").date()
+    filtered = [project for project in projects if project.start_date > filter_date]
+    filtered.sort(key=attrgetter("start_date"))
+
+    for project in filtered:
+        print(project)
 
 main()

@@ -1,3 +1,5 @@
+import datetime
+
 class Project:
 
     def __init__(self, name, start_date, priority, cost_estimate, completion_percent):
@@ -11,7 +13,7 @@ class Project:
     def __str__(self):
         """Returns a string representation of the project."""
         date_str = self.start_date.strftime("%d/%m/%Y")
-        return f"{self.name}, start = {date_str}, priority = {self.priority}, cost = ${self.cost_estimate:.2f}, completion = {self.completion_percent}%)"
+        return f"{self.name}, start = {date_str}, priority = {self.priority}, cost = ${self.cost_estimate:.2f}, completion = {self.completion_percent}%"
 
     def __lt__(self, other):
         """Compare projects by priority."""
