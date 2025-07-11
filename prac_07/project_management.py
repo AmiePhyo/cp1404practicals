@@ -26,6 +26,8 @@ def main():
             save_projects(projects,filename)
         elif choice == "d":
             display_projects(projects)
+        elif choice == "u":
+            update_project(projects)
 
         print("- (L)oad projects")
         print("- (S)ave projects")
@@ -69,6 +71,31 @@ def display_projects(projects):
     print("Completed projects:")
     for project in complete_projects:
         print(f"{project}")
+
+def update_project(projects):
+    """Update a project's completion percentage and/or priority."""
+    for i, project in enumerate(projects):
+        print(f"{i} {project}")
+    try:
+        choice = int(input("Project choice: "))
+        project = projects[choice]
+    except (ValueError, IndexError):
+        print("Invalid choice.")
+        return
+
+    print(project)
+    new_completion = input("New Percentage: ").strip()
+    new_priority = input("New Priority: ").strip()
+    if new_completion:
+        try:
+            project.completion_percent = int(new_completion)
+        except ValueError:
+            print("Invalid completion input, not updated.")
+    if new_priority:
+        try:
+            project.priority = int(new_priority)
+        except ValueError:
+            print("Invalid priority input, not updated.")
 
 
 main()
