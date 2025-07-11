@@ -28,6 +28,8 @@ def main():
             display_projects(projects)
         elif choice == "u":
             update_project(projects)
+        elif choice == "a":
+            add_new_project(projects)
 
         print("- (L)oad projects")
         print("- (S)ave projects")
@@ -96,6 +98,17 @@ def update_project(projects):
             project.priority = int(new_priority)
         except ValueError:
             print("Invalid priority input, not updated.")
+
+def add_new_project(projects):
+    """Adds a new project to the list of projects."""
+    print("Let's add a new project")
+    name = input("Name: ")
+    date_str = input("Start date (dd/mm/yyyy): ")
+    priority = int(input("Priority: "))
+    cost = float(input("Cost estimate: $"))
+    completion = int(input("Percent complete: "))
+    projects.append(Project(name, date_str, priority, cost, completion))
+    print("Project added.")
 
 
 main()
