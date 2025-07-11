@@ -47,7 +47,7 @@ def get_new_guitars():
     return new_guitars
 
 def save_guitars(filename, guitars):
-    """Save all guitars to the CSV file."""
+    """Save all guitars to the CSV file"""
     with open(filename, "w") as out_file:
         for guitar in guitars:
             out_file.write(f"{guitar.name},{guitar.year},{guitar.cost}\n")
