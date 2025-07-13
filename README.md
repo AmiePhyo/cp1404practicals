@@ -4,7 +4,7 @@ Practical work for IT@JCU CP1404
 
 ## ABOUT
 
-This repository contains my practical work for the subject CP1404 - Programming II at JamesCook University.
+This repository contains my practical work for the subject CP1404-Programming II at JamesCook University.
 
 My name is Amie Phyo. I am learning Python through practical exercises focused on clean code, file handling, classes, and object-oriented programming.
 
