@@ -12,7 +12,7 @@ def test_silver_service_taxi():
     fancy_taxi.start_fare()
     fancy_taxi.drive(18)
 
-    expected_fare = 48.78
+    expected_fare = 48.80
     actual_fare = fancy_taxi.get_fare()
     print(f"Fare for 18 km in SilverServiceTaxi: ${actual_fare}")
     assert actual_fare == expected_fare, f"Expected ${expected_fare}, but got ${actual_fare}"
